@@ -11,6 +11,8 @@ N = 100   # Set here the number of frames of your animaiton
 n = 72147 # Set here the number of vertices (times 3) of your avatar. The default value for metahumans is given here
 data_dir = r'..\FacialAnimation\Data' # Put a path to your data directory
 
+# -----------------------------------------------------------------------------
+
 import os
 import numpy as np
 import pymel.core as pycore
@@ -24,12 +26,9 @@ m = len(names0)
 
 ## First we extract weights for each frame:
 W = np.zeros((N,m)) # number of frames we have in this model
-M = np.zeros((N,n)) # number of coordinates (i.e. 3*n) in the face
 for i in range(N):
     pycore.currentTime(i)
     W[i]=[bs_node2.getAttr(nm) for nm in names0]
-    verts = np.array([[x, y, z] for x, y, z in neutral_mesh.getPoints()], dtype=np.float64).flatten()
-    M[i] = verts
     
 # Now we can also remove the controllers with zero offset:
 W_offset = np.mean(W,axis=0)
@@ -67,7 +66,6 @@ for i in range(len(D_offset)):
 W = W[:,D_offset>0]
 
 np.save(os.path.join(data_dir,'weights.npy'),W)
-np.save(os.path.join(data_dir,'meshes.npy'),M)
 np.save(os.path.join(data_dir,'deltas.npy'),deltas.T)
 np.save(os.path.join(data_dir,'neutral.npy'),neutral_verts)
 
