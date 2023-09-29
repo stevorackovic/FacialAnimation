@@ -23,11 +23,9 @@ def H_initialization(vtx,bs1,keys1):
 neutral = np.load(os.path.join(data_dir,'neutral.npy'))
 deltas = np.load(os.path.join(data_dir,'deltas.npy'))
 weights = np.load(os.path.join(data_dir,'weights.npy'))
-meshes = np.load(os.path.join(data_dir,'meshes.npy'))
 bs1 = np.load(os.path.join(data_dir,'bs1.npy'))
 keys1 = np.load(os.path.join(data_dir,'keys1.npy'))
 n,m = deltas.shape
-N,n = meshes.shape
 
 D_chs = np.zeros(((n,m,m)))
 for vtx in range(n):

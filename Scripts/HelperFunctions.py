@@ -193,3 +193,41 @@ def ctr_order(deltas):
     offset = np.sum(offset,0)
     order  = np.argsort(-offset)
     return order
+
+# -----------------------------------------------------------------------------
+# Functions for clustering
+
+def compute_error_density(vrtcs_list,ctr_list,coord_list,deltas):
+    num_clusters = len(vrtcs_list)
+    n,m = deltas.shape
+    Error        = 0.
+    Information  = 0.
+    Density      = 0.
+    AssignmentMatrix = np.zeros((num_clusters,m))
+    for clstr in range(num_clusters):
+        ctr_clst = ctr_list[clstr]
+        ctr_clst_cmp = [i for i in range(m) if i not in ctr_clst]
+        vtx_clstr = vrtcs_list[clstr]
+        coord_clstr = coord_list[clstr]
+        dlt_clstr = deltas[coord_clstr][:,ctr_clst] # - Submatrix correspodning to the cluster 'clstr'
+        dlt_clstr_cmp = deltas[coord_clstr][:,ctr_clst_cmp] # - A discarded submatrix of the cluster 'clstr'
+        info = np.sum(dlt_clstr**2)
+        err  = np.sum(dlt_clstr_cmp**2)
+        AssignmentMatrix[clstr][ctr_clst] += 1
+        Error += err
+        Information += info
+        dns = len(vtx_clstr) * len(ctr_clst)
+        Density += dns
+    ReconstructionError = Error/Information
+    return ReconstructionError, Density, AssignmentMatrix.T, Error
+    
+def compute_density(vrtcs_list,AssignmentMatrix):
+    m,num_clusters = AssignmentMatrix.shape
+    InterDensity = 0
+    for ctr in range(m):
+        Mrow = AssignmentMatrix[ctr]
+        if np.sum(Mrow) > 1:
+            for clstr in range(num_clusters):
+                InterDensity += len(vrtcs_list[clstr])*Mrow[clstr]
+    return InterDensity
+        
