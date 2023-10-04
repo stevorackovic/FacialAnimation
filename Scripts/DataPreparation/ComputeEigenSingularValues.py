@@ -26,6 +26,7 @@ weights = np.load(os.path.join(data_dir,'weights.npy'))
 bs1 = np.load(os.path.join(data_dir,'bs1.npy'))
 keys1 = np.load(os.path.join(data_dir,'keys1.npy'))
 n,m = deltas.shape
+print('Blendshape matrix has dimensions: ', n, 'x', m)
 
 D_chs = np.zeros(((n,m,m)))
 for vtx in range(n):
@@ -46,4 +47,6 @@ for i in range(n):
     _, s, _ = np.linalg.svd(D_chs[i])
     sigmas_D[i] += s[0]
 np.save(os.path.join(data_dir,'singular.npy'),sigmas_D)
+
+print('Singular and eigen values extracted successfully, stored at ', data_dir)
 

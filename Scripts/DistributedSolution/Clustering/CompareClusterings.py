@@ -11,6 +11,12 @@ number_of_repetitions = 1000
 method1='RSJD'
 method2='RSJDA'
 
+# -----------------------------------------------------------------------------
+print('Comparing the clusterigns obtained by ', method1, ', and those obtained by ', method2, '.')
+print('Considered cluster number choices (K) are: ', cluster_number_choice)
+print('Clustering for each method repeated ', number_of_repetitions, 'times.')
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -24,6 +30,10 @@ from HelperFunctions import compute_error_density, compute_density
 neutral = np.load(os.path.join(data_dir,'neutral.npy'))
 deltas = np.load(os.path.join(data_dir,'deltas.npy'))
 n,m = deltas.shape
+print('')
+print('Dimensions of the data:')
+print('Number of vertices in the mesh: ', int(n/3))
+print('Number of blendshapes: ', m)
 
 def EvaluatingClusterings(number_of_repetitions,cluster_number_choice,deltas,neutral,method='RSJD'):
     n,m = deltas.shape

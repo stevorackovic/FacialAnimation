@@ -198,6 +198,37 @@ def ctr_order(deltas):
 # Functions for clustering
 
 def compute_error_density(vrtcs_list,ctr_list,coord_list,deltas):
+    '''
+    Computes the reconstruction error and density of the clustered deltas 
+    blendshape matrix.
+
+    Parameters
+    ----------
+    vrtcs_list : list
+        Each element of this list is a list itself, filled up with integers, 
+        that represent indices of the vertices belonging to a specific cluster.
+    ctr_list : list
+        Each element of this list is a list itself, filled up with integers, 
+        that represent indices of the blendshapes belonging to a specific cluster.
+    coord_list : list
+        Each element of this list is a list itself, filled up with integers,
+        corresponding to x,y and z coordinates of vertices in vrtcs_list.
+    deltas : np.array(n,m)
+        Deltas blendshape matrix.
+        
+    Returns
+    -------
+    ReconstructionError : float
+        Reconstruction error of the clustered blendshape matrix.    
+    Density : float
+        Density of the clustered blendshape matrix.
+    AssignmentMatrix : np.array(no. of blendshapes, no. of clusters)
+        A binary matrix that specifies which controller is assigned to what cluster.
+    Error : float
+        Reconstruction error of the clustered blendshape matrix, without taking 
+        into consideration kept information.
+
+    '''
     num_clusters = len(vrtcs_list)
     n,m = deltas.shape
     Error        = 0.
@@ -222,6 +253,23 @@ def compute_error_density(vrtcs_list,ctr_list,coord_list,deltas):
     return ReconstructionError, Density, AssignmentMatrix.T, Error
     
 def compute_density(vrtcs_list,AssignmentMatrix):
+    '''
+    Computes the inter-density of the clustered deltas blendshape matrix.
+
+    Parameters
+    ----------
+    vrtcs_list : list
+        Each element of this list is a list itself, filled up with integers, 
+        that represent indices of the vertices belonging to a specific cluster.
+    AssignmentMatrix : np.array(no. of blendshapes, no. of clusters)
+        A binary matrix that specifies which controller is assigned to what cluster.        
+        
+    Returns
+    ------- 
+    InterDensity : float
+        Inter-Density of the clustered blendshape matrix.    
+
+    '''
     m,num_clusters = AssignmentMatrix.shape
     InterDensity = 0
     for ctr in range(m):

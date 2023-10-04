@@ -12,6 +12,9 @@ n = 72147 # Set here the number of vertices (times 3) of your avatar. The defaul
 data_dir = r'..\FacialAnimation\Data' # Put a path to your data directory
 
 # -----------------------------------------------------------------------------
+print('Extracting data with the following properties:')
+print('Number of vertices in the mesh: ', int(n/3))
+print('Number of the frames in the animation: ', N)
 
 import os
 import numpy as np
@@ -37,7 +40,8 @@ names = []
 for i in range(len(W_offset)):
     if W_offset[i] > 0:
         names.append(names0[i]) # this yields somewhere under 150 controllers for metahumans
-m = len(names)        
+m = len(names)
+print('Number of blendshapes: ', m)
         
 # Now go back to the first frame and set all weights to zero, to extract the neutral face
 pycore.currentTime(0)
@@ -68,4 +72,6 @@ W = W[:,D_offset>0]
 np.save(os.path.join(data_dir,'weights.npy'),W)
 np.save(os.path.join(data_dir,'deltas.npy'),deltas.T)
 np.save(os.path.join(data_dir,'neutral.npy'),neutral_verts)
+
+print('Data extracted successfully, stored at ', data_dir)
 

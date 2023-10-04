@@ -2,14 +2,8 @@
 """
 Created on Fri Sep 29 13:15:45 2023
 
-@author: Stevo
-"""
+@author: Stevo Rackovic
 
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Oct  6 14:48:26 2022
-
-@author: racko
 """
 
 import numpy as np
@@ -19,11 +13,27 @@ from sklearn.cluster import KMeans
 
 def mesh_clustering(deltas,num_clusters,neutral):
     '''
-	The function starts with a data preprocessing --- it creates and offset matrix 
-	form the blendshape matrix, and removes the vertices that exhibit an activation 
-	bellow thsh2.
-    Then it performs K-means on the new matrix; it returns labels, silhouette score 
-	and plots a face.
+	The function preprocesses the original blendshape matrix to give a matrix 
+    of offsets, and performs K-means over it, to produce mex clusters.
+
+    Parameters
+    ----------
+    deltas : np.array(n,m)
+        Deltas blendshape matrix.
+    num_clusters : int
+        Desired number of mesh clusters.
+    neutral : np.array(n)
+        Vectorized neutral face (resting pose).
+
+    Returns
+    -------
+    vtx_labels : np.array(int(n/3))
+        Vector of labels corresponginf to the mesh clusters of each mesh vertex.
+    offset : np.array(int(n/3),m)
+        Matrix of offsets, where an element in row i and column j represents the 
+        Eucledian distance of the i-th vertex of the j-th blendshape from its 
+        corresponding position in the neutral face.
+
     '''
     offset = np.sqrt((deltas[::3]**2)+(deltas[1::3]**2)+(deltas[2::3]**2))
     offset /= offset.max(0)
@@ -34,13 +44,34 @@ def mesh_clustering(deltas,num_clusters,neutral):
 ########################################################### Controller Clusters
     
 def column_assignment(num_clusters,m,offset,vtx_labels):
-    ''' Takes labels from vertex clustering, and assigns columns to corresponding 
-	clusters.
-    The idea is to create a new matrix, that has single row for each mesh cluster, 
-	and entries are average values for controllers over that cluster.
-    Then, I perform k-means with k=2 over each column, to split clusters into those 
-	with significant effect and the others.
     '''
+    Takes labels from vertex clustering, and assigns columns to corresponding 
+	clusters. The idea is to create a new matrix, that has single row for each 
+    mesh cluster, and entries are average values for controllers over that 
+    cluster. Then, it perform k-means with k=2 over each column, to split 
+    clusters into those with significant effect and the others.
+
+    Parameters
+    ----------
+    num_clusters : int
+        Desired number of mesh clusters.
+    m : int
+        Number of blendshapes.
+    offset : np.array(int(n/3),m)
+        Matrix of offsets, where an element in row i and column j represents the 
+        Eucledian distance of the i-th vertex of the j-th blendshape from its 
+        corresponding position in the neutral face.
+    vtx_labels : np.array(int(n/3))
+        Vector of labels corresponginf to the mesh clusters of each mesh vertex.
+
+    Returns
+    -------
+    column_clusters : dict
+        A dictionary with whose entries are the indices of the mesh clusters 
+        where a given blendshape is assigned.
+
+    '''
+
     Avg_mtx = np.zeros((num_clusters,m))
     for cluster in range(num_clusters):
         Mi = offset[vtx_labels==cluster]
@@ -116,6 +147,33 @@ def merging(clust_dict,tol_factor):
 ############################################# Combined Mesh-Controller Clusters
 
 def complete_clustering(deltas,num_clusters,neutral,m,factor=1,merge=True):
+    '''
+    Function for clustering the blendshape face model in both mesh space (rows) 
+    and controller space (columns).
+
+    Parameters
+    ----------
+    deltas : np.array(n,m)
+        Deltas blendshape matrix.
+    num_clusters : int
+        Desired number of mesh clusters.
+    neutral : np.array(n)
+        Vectorized neutral face (resting pose).
+    m : int
+        Number of blendshapes.
+    factor : float, optional
+        If 'merge' is set to 'True', this will define the threshold for the overlapping 
+        between the two clusters before they get merged. 0 <= factor <= 1. The default is 1.
+    merge : bool, optional
+        Specifies wether to merge the clusters with large number of overlapping 
+        components or not. The default is True.
+
+    Returns
+    -------
+    clust_dict : TYPE
+        DESCRIPTION.
+
+    '''
     vtx_labels, offset = mesh_clustering(deltas,num_clusters,neutral)
     column_clusters = column_assignment(num_clusters,m,offset,vtx_labels)
     clust_dict = {cl:[column_clusters[cl],np.where(vtx_labels==cl)[0]] for cl in range(num_clusters)}

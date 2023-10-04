@@ -200,3 +200,8 @@ np.save(os.path.join(data_dir,'keys1.npy'),keys)
 np.save(os.path.join(data_dir,'keys2.npy'),keys2)
 np.save(os.path.join(data_dir,'keys3.npy'),keys3)
 
+print('Number of corrective terms of the first level: ', len(corr_shapes))
+print('Number of corrective terms of the second level: ', len(corr_shapes2))
+print('Number of corrective terms of the third level: ', len(corr_shapes3))
+print('Data extracted successfully, stored at ', data_dir)
+
