@@ -47,7 +47,7 @@ for i in range(m-1):
         bs_node2.setAttr(names[j],0)
     bs_node2.setAttr(names[i],0)
     
-fli = first_level.items()
+fli = list(first_level.items())
 keys = np.array([fli[i][0] for i in range(len(fli))])
 corr_keys = np.array([fli[i][1][0] for i in range(len(fli))])
 
@@ -85,7 +85,7 @@ for i in range(len(fli)):
     bs_node2.setAttr(names[k1],0)    
     bs_node2.setAttr(names[k2],0)
     
-sli = second_level.items()
+sli = list(second_level.items())
 keys2 = np.array([sli[i][0] for i in range(len(sli))])
 corr_keys2 = np.array([sli[i][1][0] for i in range(len(sli))])
  
@@ -138,7 +138,7 @@ for i in range(len(sli)):
     bs_node2.setAttr(names[k2],0)
     bs_node2.setAttr(names[k3],0)
     
-tli = third_level.items()
+tli = list(third_level.items())
 keys3 = np.array([tli[i][0] for i in range(len(tli))])
 corr_keys3 = np.array([tli[i][1][0] for i in range(len(tli))])
 
