@@ -97,13 +97,13 @@ for i in range(len(sli)):
     bs_node2.setAttr(names[k3],1)
     pred = neutral + deltas[k1] + deltas[k2] + deltas[k3]
     if (k1,k2) in first_level:
-        idx = first_level.keys().index((k1,k2))
+        idx = list(first_level.keys()).index((k1,k2))
         pred += corr_shapes[idx]
     if (k1,k3) in first_level:
-        idx = first_level.keys().index((k1,k3))
+        idx = list(first_level.keys()).index((k1,k3))
         pred += corr_shapes[idx]
     if (k2,k3) in first_level:
-        idx = first_level.keys().index((k2,k3))
+        idx = list(first_level.keys()).index((k2,k3))
         pred += corr_shapes[idx]
     true = np.array([[x, y, z] for x, y, z in neutral_mesh.getPoints()], dtype=np.float64).flatten()
     corr_shapes2.append(true-pred)
@@ -151,34 +151,34 @@ for i in range(len(tli)):
     bs_node2.setAttr(names[k4],1)
     pred = neutral + deltas[k1] + deltas[k2] + deltas[k3] + deltas[k4]
     if (k1,k2) in first_level:
-        idx = first_level.keys().index((k1,k2))
+        idx = list(first_level.keys()).index((k1,k2))
         pred += corr_shapes[idx]
     if (k1,k3) in first_level:
-        idx = first_level.keys().index((k1,k3))
+        idx = list(first_level.keys()).index((k1,k3))
         pred += corr_shapes[idx]
     if (k1,k4) in first_level:
-        idx = first_level.keys().index((k1,k4))
+        idx = list(first_level.keys()).index((k1,k4))
         pred += corr_shapes[idx]
     if (k2,k3) in first_level:
-        idx = first_level.keys().index((k2,k3))
+        idx = list(first_level.keys()).index((k2,k3))
         pred += corr_shapes[idx]
     if (k2,k4) in first_level:
-        idx = first_level.keys().index((k2,k4))
+        idx = list(first_level.keys()).index((k2,k4))
         pred += corr_shapes[idx]
     if (k3,k4) in first_level:
-        idx = first_level.keys().index((k3,k4))
+        idx = list(first_level.keys()).index((k3,k4))
         pred += corr_shapes[idx]
     if (k1,k2,k3) in second_level:
-        idx = second_level.keys().index((k1,k2,k3))
+        idx = list(second_level.keys()).index((k1,k2,k3))
         pred += corr_shapes2[idx]
     if (k1,k2,k4) in second_level:
-        idx = second_level.keys().index((k1,k2,k4))
+        idx = list(second_level.keys()).index((k1,k2,k4))
         pred += corr_shapes2[idx]
     if (k1,k3,k4) in second_level:
-        idx = second_level.keys().index((k1,k3,k4))
+        idx = list(second_level.keys()).index((k1,k3,k4))
         pred += corr_shapes2[idx]
     if (k2,k3,k4) in second_level:
-        idx = second_level.keys().index((k2,k3,k4))
+        idx = list(second_level.keys()).index((k2,k3,k4))
         pred += corr_shapes2[idx]
     true = np.array([[x, y, z] for x, y, z in neutral_mesh.getPoints()], dtype=np.float64).flatten()
     corr_shapes3.append(true-pred)
