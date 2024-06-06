@@ -6,6 +6,9 @@ Created on Wed Oct  4 17:11:32 2023
 
 """
 
+import os, sys
+work_dir = os.path.dirname(os.getcwd())
+sys.path.append(work_dir)
 import numpy as np
 from HelperFunctions import quadratic_rig, objective_function
 import numba
