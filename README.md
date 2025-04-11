@@ -4,7 +4,7 @@ This repository covers the work of several scientific papers in the field of ble
 
 ## LMMM - Levenberg–Marquardt Majorization-Minimization-based Solution
 
-![Alt text](Figures/LLLM.PNG)
+![Convergence results](Figures/LLLM.PNG)
 
 THis chapter consists of two papers, solving the inverse rig problem on a base of Majorization-Minimization, in order to simplify originally complex, nonconvex objectives. the corresponding scripts can be found in ../Scripts/LMMM repo.
 
@@ -46,15 +46,15 @@ Complementing the previous paper, this one quantitatively explores the results a
 
 Opposed to the first chapter, the second one approaches the problem in coordinate-wise manner, allowing for incorporation of higher-order corrective terms. The scripts for this are in ../Scripts/CoordinateDescent, and the corresponding paper is: 
 
-#### Accurate and Interpretable Solution of the Inverse Rig for Realistic Blendshape Models with Quadratic Corrective Terms
+#### High-fidelity Interpretable Inverse Rig: An Accurate and Sparse Solution Optimizing the Quartic Blendshape Model
 
 https://arxiv.org/abs/2302.04843
 
 ```bibtex
-@article{rackovic2023accurate,
-  title={Accurate and Interpretable Solution of the Inverse Rig for Realistic Blendshape Models with Quadratic Corrective Terms},
+@article{rackovic2023high,
+  title={High-fidelity interpretable inverse rig: An accurate and sparse solution optimizing the quartic blendshape model},
   author={Rackovi{\'c}, Stevo and Soares, Cl{\'a}udia and Jakoveti{\'c}, Du{\v{s}}an and Desnica, Zoranka},
-  journal={arXiv preprint arXiv:2302.04843},
+  journal={arXiv preprint arXiv:2302.04820},
   year={2023}
 }
 ```
