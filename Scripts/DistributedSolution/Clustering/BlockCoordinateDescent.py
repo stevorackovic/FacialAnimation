@@ -4,9 +4,6 @@ Created on Wed Oct  4 11:28:00 2023
 
 @author: Stevo Rackovic
 
-This script is a copy of the script G:\My Drive\FacialAnimation\Scripts\CoordinateDescent\CoordinateDescent.py, 
-but adapted for the clustered setting.
-
 """
 
 import numpy as np
