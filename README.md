@@ -46,6 +46,8 @@ Complementing the previous paper, this one quantitatively explores the results a
 
 Opposed to the first chapter, the second one approaches the problem in coordinate-wise manner, allowing for incorporation of higher-order corrective terms. The scripts for this are in ../Scripts/CoordinateDescent, and the corresponding paper is: 
 
+![Reconstruction results](Figures/CD.PNG)
+
 #### High-fidelity Interpretable Inverse Rig: An Accurate and Sparse Solution Optimizing the Quartic Blendshape Model
 
 https://arxiv.org/abs/2302.04843
