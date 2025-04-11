@@ -1,13 +1,12 @@
-This repository covers the work of several scientific papers in the field of blendshape animation of the human face, that together build my PhD thesis, titled "...".
-
 ![Schematic view of the inverse rig problem](Figures/InverseRigProblem.PNG)
 
+This repository covers the work of several scientific papers in the field of blendshape animation of the human face, that together build my PhD thesis, titled "...".
 
 ## LMMM - Levenberg–Marquardt Majorization-Minimization-based Solution
 
 ![Alt text](Figures/LLLM.PNG)
 
-THis chapter consists of two papers, solving the inverse rig problem on a base of Majorization-Minimization, in order to simplyfy originally complex, nonconvex objective. the corresponing scripts can be found in ../Scripts/LMMM repo.
+THis chapter consists of two papers, solving the inverse rig problem on a base of Majorization-Minimization, in order to simplify originally complex, nonconvex objectives. the corresponding scripts can be found in ../Scripts/LMMM repo.
 
 #### A Majorization-Minimization-Based Method for Nonconvex Inverse Rig Problems in Facial Animation: Algorithm Derivation
 
@@ -32,7 +31,7 @@ This paper gives a mathematical derivation of the algorithm, with convergence gu
 
 https://arxiv.org/abs/2302.04843
 
-Complementing the previous paper, this one quantitativelly explores the results and benchmarks the algoritm with SOTA approaches over animated sequences. 
+Complementing the previous paper, this one quantitatively explores the results and benchmarks the algorithm with SOTA approaches over animated sequences. 
 
 ```bibtex
 @article{rackovic2023accurate,
@@ -45,7 +44,7 @@ Complementing the previous paper, this one quantitativelly explores the results 
 
 ## Coordinate Descent
 
-Opposed to hte first chapter, the second one approaches the problem in coordiante-wise manner, allowing for incorporation of hihger-order correctve terms. The scripts for this are in ../Scripts/CoordinateDescent, and the corresponding paper is: 
+Opposed to the first chapter, the second one approaches the problem in coordinate-wise manner, allowing for incorporation of higher-order corrective terms. The scripts for this are in ../Scripts/CoordinateDescent, and the corresponding paper is: 
 
 #### Accurate and Interpretable Solution of the Inverse Rig for Realistic Blendshape Models with Quadratic Corrective Terms
 
@@ -68,7 +67,7 @@ This chapter includes two papers, and corresponding scripts are in ../Scripts/Di
  
  https://ieeexplore.ieee.org/abstract/document/9616061
 
- This paper clusters the blendashape face into a semantically meaningful segments, allowing for a distributed approach to solving the inverse rig problem. 
+ This paper clusters the blendshape face into semantically meaningful segments, allowing for a distributed approach to solving the inverse rig problem. 
  
  ```bibtex
  @inproceedings{rackovic2021clustering,
@@ -85,7 +84,7 @@ This chapter includes two papers, and corresponding scripts are in ../Scripts/Di
 
 https://dl.acm.org/doi/abs/10.1145/3610543.3626166
 
-This is a further developement of the above paper, that incorporates the ADMM paradigm to improve the estimates of the overlapping segment components.
+This is a further development of the above paper that incorporates the ADMM paradigm to improve the estimates of the overlapping segment components.
 
 ```bibtex
 @incollection{rackovic2023distributed,
@@ -99,7 +98,7 @@ This is a further developement of the above paper, that incorporates the ADMM pa
 
 ## Time-aware Components
 
-Finally, the last chapter covers time dependencis of hte animation sequences, aiming at smooth and semantically correct animation reconstruction. The corresponding scripts are in ../Scripts/TimeAwareComponent repo.
+Finally, the last chapter covers time dependencies of the animation sequences, aiming at smooth and semantically correct animation reconstruction. The corresponding scripts are in ../Scripts/TimeAwareComponent repo.
 
 #### Refined Inverse Rigging: A Balanced Approach to High-fidelity Blendshape Animation
 
