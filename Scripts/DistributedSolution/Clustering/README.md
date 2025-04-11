@@ -1,6 +1,27 @@
 Here we consider two approaches:
-1.) RSJD is the method proposed in S. Racković, C. Soares, D. Jakovetić, Z. Desnica and R. Ljubobratović, "Clustering of the Blendshape Facial Model," 2021 29th European Signal Processing Conference (EUSIPCO), Dublin, Ireland, 2021, pp. 1556-1560, doi: 10.23919/EUSIPCO54536.2021.9616061. 
-2.) RSJDA is the adjustement of the above method, proposed in S. Racković, C. Soares, D. Jakovetić, "Distributed Solution of the Blendshape Rig Inversion Problem," SIGGRAPH Asia 2023 Technical Communications, Sydney, NSW, Australia, 2023, doi: 10.1145/3610543.3626166. 
+
+1.) RSJD is the method proposed in
+```bibtex
+@inproceedings{rackovic2021clustering,
+  title={Clustering of the blendshape facial model},
+  author={Rackovi{\'c}, Stevo and Soares, Cl{\'a}udia and Jakoveti{\'c}, Du{\v{s}}an and Desnica, Zoranka and Ljubobratovi{\'c}, Relja},
+  booktitle={2021 29th European Signal Processing Conference (EUSIPCO)},
+  pages={1556--1560},
+  year={2021},
+  organization={IEEE}
+}
+```
+
+2.) RSJDA is the adjustement of the above method, proposed in 
+```bibtex
+@incollection{rackovic2023distributed,
+  title={Distributed Solution of the Blendshape Rig Inversion Problem},
+  author={Rackovi{\'c}, Stevo and Soares, Cl{\'a}udia and Jakoveti{\'c}, Du{\v{s}}an},
+  booktitle={SIGGRAPH Asia 2023 Technical Communications},
+  pages={1--4},
+  year={2023}
+}
+```
 
 Required modules:
 
