@@ -1,6 +1,6 @@
 This repository covers the work of several scientific papers in the field of blendshape animation of the human face, that together build my PhD thesis, titled "...".
 
-![Alt text](Figures/Inverse rig problem.PNG)
+![Schematic view of the inverse rig problem](Figures/InverseRigProblem.PNG)
 
 
 ## LMMM - Levenberg–Marquardt Majorization-Minimization-based Solution
