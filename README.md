@@ -4,7 +4,7 @@ This repository covers the work of several scientific papers in the field of ble
 
 THis chapter consists of two papers, solving the inverse rig problem on a base of Majorization-Minimization, in order to simplyfy originally complex, nonconvex objective. the corresponing scripts can be found in ../Scripts/LMMM repo.
 
-#### A Majorization--Minimization-Based Method for Nonconvex Inverse Rig Problems in Facial Animation: Algorithm Derivation
+#### A Majorization-Minimization-Based Method for Nonconvex Inverse Rig Problems in Facial Animation: Algorithm Derivation
 
 https://link.springer.com/article/10.1007/s11590-023-02012-w
 
@@ -28,6 +28,23 @@ This paper gives a mathematical derivation of the algorithm, with convergence gu
 https://arxiv.org/abs/2302.04843
 
 Complementing the previous paper, this one quantitativelly explores the results and benchmarks the algoritm with SOTA approaches over animated sequences. 
+
+```bibtex
+@article{rackovic2023accurate,
+  title={Accurate and Interpretable Solution of the Inverse Rig for Realistic Blendshape Models with Quadratic Corrective Terms},
+  author={Rackovi{\'c}, Stevo and Soares, Cl{\'a}udia and Jakoveti{\'c}, Du{\v{s}}an and Desnica, Zoranka},
+  journal={arXiv preprint arXiv:2302.04843},
+  year={2023}
+}
+```
+
+## Coordinate Descent
+
+Opposed to hte first chapter, the second one approaches the problem in coordiante-wise manner, allowing for incorporation of hihger-order correctve terms. The scripts for this are in ../Scripts/CoordinateDescent, and the corresponding paper is: 
+
+#### Accurate and Interpretable Solution of the Inverse Rig for Realistic Blendshape Models with Quadratic Corrective Terms
+
+https://arxiv.org/abs/2302.04843
 
 ```bibtex
 @article{rackovic2023accurate,
@@ -74,3 +91,31 @@ This is a further developement of the above paper, that incorporates the ADMM pa
   year={2023}
 }
 ```
+
+## Time-aware Components
+
+Finally, the last chapter covers time dependencis of hte animation sequences, aiming at smooth and semantically correct animation reconstruction. The corresponding scripts are in ../Scripts/TimeAwareComponent repo.
+
+#### Refined Inverse Rigging: A Balanced Approach to High-fidelity Blendshape Animation
+
+https://dl.acm.org/doi/full/10.1145/3680528.3687670
+
+```bibtex
+@inproceedings{10.1145/3680528.3687670,
+author = {Rackovi\'{c}, Stevo and Jakoveti\'{c}, Du\v{s}an and Soares, Cl\'{a}udia},
+title = {Refined Inverse Rigging: A Balanced Approach to High-fidelity Blendshape Animation},
+year = {2024},
+isbn = {9798400711312},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3680528.3687670},
+doi = {10.1145/3680528.3687670},
+booktitle = {SIGGRAPH Asia 2024 Conference Papers},
+articleno = {45},
+numpages = {9},
+keywords = {blendshape animation, inverse rig problem, face segmentation},
+location = {Tokyo, Japan},
+series = {SA '24}
+}
+```
+
