@@ -63,6 +63,8 @@ https://arxiv.org/abs/2302.04843
 
 ## Distributed Solution 
 
+![Distributed approach](Figures/Clustering.PNG)
+
 This chapter includes two papers, and corresponding scripts are in ../Scripts/DistributedSolution repo.
 
  #### Clustering of the Blendshape Facial Model
