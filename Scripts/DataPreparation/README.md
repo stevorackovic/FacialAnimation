@@ -1,6 +1,13 @@
 These scripts should be used for extracting the animation data from Maya (or creating synthetic one) and structuring it properly before proceeding to work with any ot the other modules in this repo.
 
   ```CreateRandomData.py``` - This script creates random blendshape matrix and neutral face, as well as corrective terms of the first three levels. A user should specify the desired final dimensions of the data. Bear in mind that this will result in random vectors/matrices, and the data will not have any of the expected face nature.
+The default values of the parameters in the script:
+```python
+N = 100   # Set here the number of frames of your animaiton
+n = 9000  # Set here the number of vertices (times 3) of your avatar. 
+m = 60    # Put the number of your character blendhsapes
+m1, m2, m3 = 50, 25, 10 # Set the number of corrective terms of first, second and third level, respectively
+```
   
   ```ExtractBlendshapes.py``` - This script is to be executed in Autodesk Maya console, with a metahuman (or some other) avatar. It extracts the neutral face and delta blendshape matrix. The user should specify the number of available animated frames, number of vertices in the mesh and the path where data will be stored.
   
