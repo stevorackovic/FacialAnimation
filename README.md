@@ -90,7 +90,7 @@ https://dl.acm.org/doi/abs/10.1145/3610543.3626166
 
 This is a further development of the above paper that incorporates the ADMM paradigm to improve the estimates of the overlapping segment components.
 
-![Distributed approach](Figures/ClusterExamples.PNG)
+![Cluster Examples](Figures/ClusterExamples.PNG)
 
 ```bibtex
 @incollection{rackovic2023distributed,
